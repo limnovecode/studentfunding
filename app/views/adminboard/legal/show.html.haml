@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @legal.title
+%p
+  %b Active:
+  = @legal.active
+
+= link_to 'Edit', edit_adminboard_legal_path(@legal)
+\|
+= link_to 'Back', adminboard_legal_index_path

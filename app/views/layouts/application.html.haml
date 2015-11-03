@@ -1,0 +1,24 @@
+-# app/views/layouts/application.html.haml
+
+!!!
+%html
+  %head
+    %meta{ charset: "utf-8" }
+    %meta{ content: "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible" }
+    %meta{ content: "initial-scale=1.0, width=device-width", name: "viewport" }
+    %title Annapurna
+    %meta{ content: "A basic ruby on rails 4.2 application for a Heroku Deployment.", name: "description" }
+    %meta{ content: "Design, Web Design, Development, Web Development, Digital, Digital Design, Digital Agency, Mobile, Mobile App, Mobile Web, Mobile Website, London", name: "tags" }
+    %meta{ content: "IIGETHR (talktous[@]iigethr.com)", name: "author" }
+    = favicon_link_tag "favicon.png", rel: "icon", type: "image/png"
+    = favicon_link_tag "favicon.ico", type: "image/vnd.microsoft.icon"
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true, async: true
+    = csrf_meta_tags
+  %body
+    .universal
+      .placeholder
+        .wrap
+          .row12Left
+            = yield
+        .clear

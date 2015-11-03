@@ -1,0 +1,19 @@
+-# app/views/adminboard/password_resets/partials/_form.html.haml
+
+- if params[:action] == "edit"
+  = form_for [:adminboard, object], url: adminboard_password_reset_path(params[:id]), html: {autocomplete: :off} do |f|
+    .field
+      = f.label :password
+      = f.password_field :password, autocomplete: :off
+    .field
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, autocomplete: :off
+    .actions
+      = f.submit "Save"
+- else
+  = form_tag adminboard_password_resets_path, autocomplete: :off do
+    .field
+      = label_tag "Email"
+      = text_field_tag :email, nil
+    .actions
+      = submit_tag "Send"

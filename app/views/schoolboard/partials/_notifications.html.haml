@@ -1,0 +1,18 @@
+-# app/views/schoolboard/partials/_notifications.html.haml
+
+- if flash[:success]
+  .universal.green00Bg
+    .placeholder
+      .wrap
+        .row12Left
+          %h6.green30Ft
+            = flash[:success]
+      .clear
+- elsif flash[:failure]
+  .universal.red00Bg
+    .placeholder
+      .wrap
+        .row12Left
+          %h6.red30Ft
+            = flash[:failure]
+      .clear

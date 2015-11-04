@@ -1,0 +1,23 @@
+%h1 Listing pending receipts
+
+%table
+  %tr
+    %th Store
+    %th Reference
+    %th Amount
+    %th Purchased
+    %th Status
+    %th
+
+  - @receipts.each do |receipt|
+    %tr
+      %td= receipt.store.title
+      %td= receipt.reference
+      %td= receipt.amount
+      %td= receipt.purchased
+      %td= receipt.status
+      %td= link_to 'Show', [:schoolboard, receipt]
+
+%br
+
+= link_to 'New Receipt', new_schoolboard_receipt_path

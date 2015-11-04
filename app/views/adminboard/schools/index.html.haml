@@ -1,0 +1,27 @@
+%h1 Listing schools
+
+%table
+  %tr
+    %th Title
+    %th Description
+    %th Email
+    %th Password
+    %th Active
+    %th
+    %th
+    %th
+
+  - @schools.each do |school|
+    %tr
+      %td= school.title
+      %td= school.description
+      %td= school.email
+      %td= school.password_digest
+      %td= school.active
+      %td= link_to 'Show', [:adminboard, school]
+      %td= link_to 'Edit', edit_adminboard_school_path(school)
+      %td= link_to 'Destroy', [:adminboard, school], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New School', new_adminboard_school_path

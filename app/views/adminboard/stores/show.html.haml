@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @store.title
+%p
+  %b Description:
+  = @store.description
+%p
+  %b Active:
+  = @store.active
+
+= link_to 'Edit', edit_adminboard_store_path(@store)
+\|
+= link_to 'Back', adminboard_stores_path

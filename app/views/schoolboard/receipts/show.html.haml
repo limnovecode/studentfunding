@@ -1,0 +1,22 @@
+%p#notice= notice
+
+%p
+  %b Store:
+  = @receipt.store.title
+%p
+  %b Reference:
+  = @receipt.reference
+%p
+  %b Amount:
+  = @receipt.amount
+%p
+  %b Percentage:
+  = @receipt.percentage
+%p
+  %b Purchased:
+  = @receipt.purchased
+%p
+  %b Status:
+  = @receipt.status
+
+= link_to 'Back', schoolboard_receipts_path

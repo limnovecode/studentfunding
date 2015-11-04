@@ -4,7 +4,7 @@ class Administrator < ActiveRecord::Base
   before_validation :generate_slug, on: :create, uniqueness: true
   before_validation :generate_auth_token, on: :create, uniqueness: true
 
-  validates :email,    presence: true, uniqueness: :true, email: true
+  validates :email, presence: true, uniqueness: :true, email: true
 
   def to_param
     slug

@@ -1,0 +1,53 @@
+// app/assets/stylesheets/storeboard/core.scss
+
+//
+//  MUST STAY ON HIGHER LEVEL
+//
+
+@import "storeboard/partials/colors";
+@import "neutralize";
+@import "prefixes";
+@import "floats";
+@import "rows";
+@import "hidden";
+@import "selection";
+@import "hoverEffects";
+
+//
+//  Elements
+//
+
+html {
+  color: $gray30;
+  background-color: #ffffff;
+}
+
+body {
+  color: $gray30;
+  background-color: #ffffff;
+  height: auto;
+  margin: 0 auto;
+  font-family: Helvetica, Arial, Sans-serif;
+  font-size: 18px;
+
+  .universal {
+    width: 100%;
+    margin: 0 auto;
+
+    .placeholder {
+      margin: 0 auto;
+
+      .wrap {
+        @include floatLeft;
+        width: inherit;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+//
+//  MUST STAY ON LOWER LEVEL
+//
+
+@import "storeboard/partials/mediaQueries";

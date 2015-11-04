@@ -1,0 +1,38 @@
+%h2 Total:
+%p= school_overall
+
+%h2 Approved:
+%p= school_approved
+
+%h2 Pending:
+%p= school_pending
+
+%h2 Conflict:
+%p= school_conflict
+
+%h2 Rejected:
+%p= school_rejected
+
+%h1 Listing approved receipts
+
+%table
+  %tr
+    %th Store
+    %th Reference
+    %th Amount
+    %th Purchased
+    %th Status
+    %th
+
+  - @receipts.each do |receipt|
+    %tr
+      %td= receipt.store.title
+      %td= receipt.reference
+      %td= receipt.amount
+      %td= receipt.purchased
+      %td= receipt.status
+      %td= link_to 'Show', [:schoolboard, receipt]
+
+%br
+
+= link_to 'New Receipt', new_schoolboard_receipt_path

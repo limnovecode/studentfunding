@@ -3,8 +3,6 @@
 class AdminboardController < ApplicationController
   before_action :authorize_administrator
   layout :layout_to_render
-  respond_to :html
-  responders :flash
 
   private
 

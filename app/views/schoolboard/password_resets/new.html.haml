@@ -1,0 +1,6 @@
+- #  -- Path:  /admin/password_resets
+- #  -- Name:  new
+- #  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+%h1 Get password reset
+= render "schoolboard/password_resets/partials/form", object: @administrator
+= link_to "Go Back", schoolboard_login_path

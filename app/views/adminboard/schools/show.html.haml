@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @school.title
+%p
+  %b Description:
+  = @school.description
+%p
+  %b Active:
+  = @school.active
+
+= link_to 'Edit', edit_adminboard_school_path(@school)
+\|
+= link_to 'Back', adminboard_schools_path

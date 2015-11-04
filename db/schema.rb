@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151103113602) do
+ActiveRecord::Schema.define(version: 20154551346778) do
 
   create_table "administrators", force: :cascade do |t|
     t.string   "slug",                   limit: 255
@@ -36,4 +36,60 @@ ActiveRecord::Schema.define(version: 20151103113602) do
     t.datetime "updated_at",                            null: false
   end
 
+  create_table "receipts", force: :cascade do |t|
+    t.string   "slug",       limit: 255
+    t.integer  "school_id",  limit: 4
+    t.integer  "store_id",   limit: 4
+    t.integer  "reference",  limit: 4
+    t.decimal  "amount",                 precision: 6,  scale: 2
+    t.date     "purchased"
+    t.string   "status",     limit: 255
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.decimal  "percentage",             precision: 12, scale: 2
+  end
+
+  add_index "receipts", ["school_id"], name: "index_receipts_on_school_id", using: :btree
+  add_index "receipts", ["slug"], name: "index_receipts_on_slug", unique: true, using: :btree
+  add_index "receipts", ["store_id"], name: "index_receipts_on_store_id", using: :btree
+
+  create_table "schools", force: :cascade do |t|
+    t.string   "slug",                   limit: 255
+    t.string   "title",                  limit: 255
+    t.text     "description",            limit: 65535
+    t.boolean  "active"
+    t.string   "email",                  limit: 255
+    t.string   "password_digest",        limit: 255
+    t.string   "authentication_token",   limit: 255
+    t.string   "reset_password_token",   limit: 255
+    t.datetime "reset_password_sent_at"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
+
+  add_index "schools", ["email"], name: "index_schools_on_email", unique: true, using: :btree
+  add_index "schools", ["reset_password_token"], name: "index_schools_on_reset_password_token", unique: true, using: :btree
+  add_index "schools", ["slug"], name: "index_schools_on_slug", unique: true, using: :btree
+
+  create_table "stores", force: :cascade do |t|
+    t.string   "slug",                   limit: 255
+    t.string   "title",                  limit: 255
+    t.text     "description",            limit: 65535
+    t.boolean  "active"
+    t.string   "email",                  limit: 255
+    t.string   "password_digest",        limit: 255
+    t.string   "authentication_token",   limit: 255
+    t.string   "reset_password_token",   limit: 255
+    t.datetime "reset_password_sent_at"
+    t.datetime "created_at",                                                   null: false
+    t.datetime "updated_at",                                                   null: false
+    t.decimal  "percentage",                           precision: 2, scale: 2
+  end
+
+  add_index "stores", ["email"], name: "index_stores_on_email", unique: true, using: :btree
+  add_index "stores", ["reset_password_token"], name: "index_stores_on_reset_password_token", unique: true, using: :btree
+  add_index "stores", ["slug"], name: "index_stores_on_slug", unique: true, using: :btree
+
+  add_foreign_key "receipts", "schools"
+  add_foreign_key "receipts", "stores"
 end
